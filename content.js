@@ -18,15 +18,6 @@ function setControlState(state) {
     .setAttribute("aria-checked", state);
 }
 
-function handleControl() {
-  // Toggle current state
-  let newState = !getControlState();
-
-  setEndcardsVisibile(newState);
-  setControlState(newState);
-  saveState(newState);
-}
-
 function injectControl() {
   const controlHTML = `<div
     id="endcardcontroller"
@@ -50,7 +41,14 @@ function injectControl() {
 
   document
     .getElementById("endcardcontroller")
-    .addEventListener("click", handleControl);
+    .addEventListener("click", function () {
+      // Toggle current state
+      let newState = !getControlState();
+
+      setEndcardsVisibile(newState);
+      setControlState(newState);
+      saveState(newState);
+    });
 }
 
 function saveState(state) {
