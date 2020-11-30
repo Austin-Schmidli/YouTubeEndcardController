@@ -1,3 +1,4 @@
+// Construct the control then inject it into the DOM
 let endcardControl = document.createElement("div");
 endcardControl.innerHTML = `<div
   id="endcardcontroller"
@@ -23,6 +24,7 @@ function setEndcardsVisibile(visibility) {
 }
 
 function getControlValue() {
+  // Conditional effectively casts the value from string to boolean
   return (
     document.getElementById("endcardcontroller").getAttribute("aria-checked") ==
     "true"
@@ -35,7 +37,7 @@ function setControlValue(value) {
     .setAttribute("aria-checked", value);
 }
 
-function toggle() {
+function toggleEndcards() {
   let checked = getControlValue();
 
   if (checked) setEndcardsVisibile(true);
@@ -45,6 +47,8 @@ function toggle() {
   setControlValue(!checked);
 }
 
-document.getElementById("endcardcontroller").addEventListener("click", toggle);
+document
+  .getElementById("endcardcontroller")
+  .addEventListener("click", toggleEndcards);
 
 setEndcardsVisibile(false);
