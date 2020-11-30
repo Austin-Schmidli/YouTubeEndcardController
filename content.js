@@ -18,7 +18,15 @@ function setControlState(state) {
     .setAttribute("aria-checked", state);
 }
 
+let injectedControl = false;
 function injectControl() {
+  // Only ever inject once
+  // Don't bother at all if injection target does not exist
+  if (injectedControl || !document.querySelector(".ytp-panel-menu")) {
+    return;
+  }
+  injectedControl = true;
+
   const controlHTML = `<div
     id="endcardcontroller"
     class="ytp-menuitem" 
@@ -64,13 +72,17 @@ function loadState() {
   });
 }
 
-let injectedControl = false;
+function initialize() {
+  injectControl();
+  loadState();
+}
+
+// YouTube is a single page application (SPA)
+// That means this extension is executed only once at the initial page load
+// In order to re-apply DOM modifications after every navigation, we use this event listener.
 document.body.addEventListener("yt-navigate-finish", function (event) {
-  if (!!document.querySelector(".ytp-panel-menu")) {
-    if (!injectedControl) {
-      injectControl();
-      injectedControl = true;
-    }
-    loadState();
-  }
+  initialize();
 });
+
+// The above event isn't fired on the initial page load, so we also initalize here.
+initialize();
