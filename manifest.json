@@ -3,7 +3,7 @@
   "name": "YouTube Endcard Controller",
   "version": "1.0",
   "description": "Adds an option to hide endcards on YouTube",
-  "permissions": ["activeTab", "tabs", "storage"],
+  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
