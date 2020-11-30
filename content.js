@@ -15,22 +15,36 @@ endcardControl.innerHTML = `<div
 endcardControl = endcardControl.firstChild;
 document.querySelector(".ytp-panel-menu").appendChild(endcardControl);
 
-function setEndcardsVisibile(visible) {
+function setEndcardsVisibile(visibility) {
   endcards = document.getElementsByClassName("ytp-ce-element");
   for (i = 0; i < endcards.length; i++) {
-    endcards[i].hidden = !visible;
+    endcards[i].hidden = !visibility;
   }
 }
 
+function getControlValue() {
+  return (
+    document.getElementById("endcardcontroller").getAttribute("aria-checked") ==
+    "true"
+  );
+}
+
+function setControlValue(value) {
+  document
+    .getElementById("endcardcontroller")
+    .setAttribute("aria-checked", value);
+}
+
 function toggle() {
-  let checkbox = document.getElementById("endcardcontroller");
-  let checked = checkbox.getAttribute("aria-checked") == "true";
+  let checked = getControlValue();
 
   if (checked) setEndcardsVisibile(true);
   else setEndcardsVisibile(false);
 
-  checkbox.setAttribute("aria-checked", !checked);
+  // Toggle the control
+  setControlValue(!checked);
 }
 
-setEndcardsVisibile(false);
 document.getElementById("endcardcontroller").addEventListener("click", toggle);
+
+setEndcardsVisibile(false);
