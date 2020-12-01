@@ -18,6 +18,19 @@ function setControlState(state) {
     .setAttribute("aria-checked", state);
 }
 
+function saveState(state) {
+  chrome.storage.sync.set({ showEndcards: state });
+}
+
+function loadState() {
+  chrome.storage.sync.get(["showEndcards"], function (result) {
+    state = result.showEndcards;
+
+    setControlState(state);
+    setEndcardsVisibile(state);
+  });
+}
+
 let injectedControl = false;
 function injectControl() {
   // Only ever inject once
@@ -57,19 +70,6 @@ function injectControl() {
       setControlState(newState);
       saveState(newState);
     });
-}
-
-function saveState(state) {
-  chrome.storage.sync.set({ showEndcards: state });
-}
-
-function loadState() {
-  chrome.storage.sync.get(["showEndcards"], function (result) {
-    state = result.showEndcards;
-
-    setControlState(state);
-    setEndcardsVisibile(state);
-  });
 }
 
 function initialize() {
