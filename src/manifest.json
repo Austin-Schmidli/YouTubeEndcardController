@@ -2,12 +2,15 @@
   "manifest_version": 2,
   "name": "YouTube Endcard Controller",
   "version": "0.0.1",
-  "description": "Adds an option to hide endcards on YouTube",
+  "description": "Hide or show endcards on YouTube",
   "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "icons": {
+    "128": "icon128.png"
+  }
 }
