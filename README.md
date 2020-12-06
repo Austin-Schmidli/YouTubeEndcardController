@@ -1,6 +1,6 @@
-# YouTube Endcard Controller
+# YouTube Endcard Controller 
 
-![screenshot of control](https://lh3.googleusercontent.com/BL4tPiY52gBWMkNN-uVS-THjsOfcLUBGLqTBAdCUJHFNrq7I9FfcBnEyLrdUg-rgsGS0u19LUA=w640-h400-e365-rj-sc0x00ffffff)
+![screenshot of control](/store/control640x400.png)
 
 ## Features
 
@@ -13,6 +13,3 @@
 
 * [Add to Chrome](https://chrome.google.com/webstore/detail/youtube-endcard-controlle/dhcmfnihepmjalbfgelbfoecmmjjbinh)
 * [Add to Firefox](https://addons.mozilla.org/en-US/firefox/addon/youtube-endcard-controller/)
-
-
-
