@@ -1,7 +1,5 @@
 # YouTube Endcard Controller 
 
-<img  src="/src/icon128.png"/>
-
 ![screenshot of control](/store/control640x400.png)
 
 ## Features
